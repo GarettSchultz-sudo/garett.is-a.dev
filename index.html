@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garett Schultz | AI Developer</title>
+    <title>Garett Schultz | Federal Compliance & Cloud Security</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #16161f;
-            --text-primary: #f0f0f5;
-            --text-secondary: #9898a8;
-            --accent: #00d4aa;
-            --accent-glow: rgba(0, 212, 170, 0.15);
-            --accent-alt: #6366f1;
-            --gradient: linear-gradient(135deg, #00d4aa 0%, #6366f1 100%);
-            --border: rgba(255, 255, 255, 0.06);
+            --navy: #0a1628;
+            --navy-light: #132038;
+            --slate: #1e3a5f;
+            --accent: #38bdf8;
+            --accent-dim: #0ea5e9;
+            --gold: #fbbf24;
+            --white: #f8fafc;
+            --gray: #94a3b8;
+            --gray-dark: #64748b;
+            --success: #10b981;
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
         }
 
         * {
@@ -32,80 +34,48 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: var(--font-body);
+            background: var(--navy);
+            color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Background Effects */
-        .bg-grid {
+        /* Animated background */
+        .bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
+            opacity: 0.03;
             background-image: 
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
             background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.3;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow-1 {
-            top: -200px;
-            right: -200px;
-            background: var(--accent);
-        }
-
-        .bg-glow-2 {
-            bottom: -200px;
-            left: -200px;
-            background: var(--accent-alt);
         }
 
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.5rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.8);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, var(--navy) 0%, transparent 100%);
+            backdrop-filter: blur(8px);
         }
 
         .logo {
-            font-family: 'Syne', sans-serif;
+            font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
@@ -115,31 +85,16 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--gray);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
+            letter-spacing: 0.02em;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--accent);
         }
 
         /* Hero Section */
@@ -148,14 +103,12 @@
             display: flex;
             align-items: center;
             padding: 8rem 2rem 4rem;
-            position: relative;
-            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+            max-width: 800px;
         }
 
         .hero-label {
@@ -163,20 +116,20 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(0, 212, 170, 0.2);
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             border-radius: 50px;
             font-size: 0.85rem;
             color: var(--accent);
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .hero-label::before {
             content: '';
             width: 8px;
             height: 8px;
-            background: var(--accent);
+            background: var(--success);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
@@ -187,65 +140,61 @@
         }
 
         .hero h1 {
-            font-family: 'Syne', sans-serif;
+            font-family: var(--font-display);
             font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.1;
+            font-weight: 400;
+            line-height: 1.05;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.1s both;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
         }
 
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 em {
+            color: var(--accent);
+            font-style: italic;
         }
 
-        .hero-subtitle {
+        .hero-description {
             font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
+            color: var(--gray);
+            max-width: 600px;
             margin-bottom: 2.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
         }
 
-        .hero-cta {
+        .hero-stats {
             display: flex;
-            gap: 1rem;
-            animation: fadeInUp 0.8s ease 0.3s both;
+            gap: 3rem;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
         }
 
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+        .stat {
+            text-align: left;
         }
 
-        .btn-primary {
-            background: var(--gradient);
-            color: var(--bg-primary);
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--white);
+            line-height: 1;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px var(--accent-glow);
+        .stat-value.accent {
+            color: var(--accent);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border);
+        .stat-value.gold {
+            color: var(--gold);
         }
 
-        .btn-secondary:hover {
-            background: var(--bg-card);
-            border-color: var(--accent);
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         @keyframes fadeInUp {
@@ -259,427 +208,384 @@
             }
         }
 
-        /* Sections */
+        /* Section Styles */
         section {
             padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .section-header {
             margin-bottom: 4rem;
         }
 
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .stat-number {
-            font-family: 'Syne', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-bottom: 4rem;
-        }
-
-        .skill-tag {
-            padding: 0.6rem 1.2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            border-color: var(--accent);
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             color: var(--accent);
-            transform: translateY(-2px);
+            margin-bottom: 0.75rem;
         }
 
-        .skill-tag.highlight {
-            background: var(--accent-glow);
-            border-color: rgba(0, 212, 170, 0.3);
-            color: var(--accent);
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
         }
 
-        /* Focus Areas */
-        .focus-grid {
+        /* Expertise Section */
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
-        .focus-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        .expertise-card {
+            background: linear-gradient(135deg, var(--navy-light) 0%, var(--slate) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 16px;
-            transition: all 0.3s ease;
+            padding: 2rem;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .focus-card::before {
+        .expertise-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 100%;
             height: 3px;
-            background: var(--gradient);
+            background: linear-gradient(90deg, var(--accent), var(--accent-dim));
             transform: scaleX(0);
-            transition: transform 0.3s ease;
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
-        .focus-card:hover {
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
-
-        .focus-card:hover::before {
+        .expertise-card:hover::before {
             transform: scaleX(1);
         }
 
-        .focus-icon {
+        .expertise-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
+
+        .expertise-icon {
             width: 48px;
             height: 48px;
-            background: var(--accent-glow);
+            background: rgba(56, 189, 248, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .focus-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .focus-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .project-badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--accent-alt);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .project-card h3 {
+        .expertise-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
 
-        .project-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .expertise-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .impact-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card.featured {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, var(--navy-light) 50%);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+        }
+
+        .impact-badge.gold {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+        }
+
+        .impact-badge.success {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .impact-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .impact-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
-        .project-tags {
+        .impact-metric {
             display: flex;
-            flex-wrap: wrap;
+            align-items: baseline;
             gap: 0.5rem;
         }
 
-        .project-tag {
-            padding: 0.3rem 0.7rem;
-            background: var(--bg-secondary);
-            border-radius: 4px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+        .impact-metric .value {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--accent);
         }
 
-        /* Experience Timeline */
-        .timeline {
+        .impact-metric .label {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .tech-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
             position: relative;
             padding-left: 2rem;
         }
 
-        .timeline::before {
+        .experience-timeline::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--border);
+            background: linear-gradient(to bottom, var(--accent), var(--slate));
         }
 
-        .timeline-item {
+        .experience-item {
             position: relative;
             padding-bottom: 3rem;
         }
 
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-dot {
+        .experience-item::before {
+            content: '';
             position: absolute;
             left: -2rem;
-            top: 0;
-            width: 14px;
-            height: 14px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
             background: var(--accent);
             border-radius: 50%;
-            transform: translateX(-6px);
-            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateX(-5px);
         }
 
-        .timeline-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
+        .experience-item.current::before {
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
         }
 
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .timeline-company {
-            color: var(--accent);
-            font-size: 0.95rem;
-            margin-top: 0.25rem;
-        }
-
-        .timeline-date {
-            color: var(--text-secondary);
+        .experience-date {
             font-size: 0.85rem;
-            background: var(--bg-secondary);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
-        .timeline-list {
+        .experience-role {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            color: var(--gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .experience-highlights {
             list-style: none;
         }
 
-        .timeline-list li {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            padding-left: 1.5rem;
+        .experience-highlights li {
             position: relative;
+            padding-left: 1.5rem;
+            color: var(--gray);
             margin-bottom: 0.75rem;
+            font-size: 0.95rem;
         }
 
-        .timeline-list li::before {
+        .experience-highlights li::before {
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--accent-dim);
         }
 
-        /* Education & Certs */
-        .credentials-grid {
+        /* Skills Grid */
+        .skills-section {
+            background: var(--navy-light);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
-        .credential-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .credential-section h3::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .credential-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
+        .skill-category h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
             margin-bottom: 1rem;
         }
 
-        .credential-card h4 {
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* Credentials Section */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .credential-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 1.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .credential-card:hover {
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .credential-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .credential-info h4 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .credential-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .cert-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .cert-badge {
-            padding: 0.6rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+        .credential-info p {
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            color: var(--gray);
         }
 
         /* Footer */
         footer {
             padding: 4rem 2rem;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            position: relative;
-            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
 
-        .footer-brand h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
+        .footer-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
             margin-bottom: 0.5rem;
         }
 
-        .footer-brand p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+        .footer-info p {
+            color: var(--gray);
         }
 
-        .footer-links h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--gray);
             text-decoration: none;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
@@ -687,13 +593,11 @@
             color: var(--accent);
         }
 
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+        .copyright {
+            width: 100%;
             text-align: center;
-            color: var(--text-secondary);
+            padding-top: 2rem;
+            color: var(--gray-dark);
             font-size: 0.85rem;
         }
 
@@ -702,13 +606,17 @@
             display: none;
             background: none;
             border: none;
-            color: var(--text-primary);
+            color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -717,330 +625,316 @@
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-section {
+                padding: 2rem 1.5rem;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 text-align: center;
             }
-
-            .timeline {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-header {
-                flex-direction: column;
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            color: var(--bg-primary);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 30px var(--accent-glow);
-        }
-
-        /* Scroll animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-pattern"></div>
 
     <nav>
-        <div class="nav-content">
-            <div class="logo">Garett Schultz</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#credentials">Credentials</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
-        </div>
+        <a href="#" class="logo">Garett Schultz</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
     </nav>
 
-    <section class="hero" id="hero">
+    <header class="hero">
         <div class="hero-content">
-            <div class="hero-label">AI Developer & Automation Engineer</div>
-            <h1>Hi, I'm <span>Garett Schultz</span></h1>
-            <p class="hero-subtitle">
-                I build automation platforms and AI-powered tools that drive real business impact. 
-                From API integrations and workflow engines to full-stack cloud applications—my software 
-                has generated over $2M in annual revenue. I work across AWS, Azure, and GCP.
+            <div class="hero-label">Open to Opportunities</div>
+            <h1>Federal Compliance Lead & <em>Cloud Security</em> Expert</h1>
+            <p class="hero-description">
+                I build compliance programs and automation tools that drive FedRAMP authorizations for Cloud Service Providers. From SSP documentation to POA&M systems—my work has generated over $2M in annual revenue.
             </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#experience" class="btn btn-secondary">Experience</a>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value accent">$2M+</div>
+                    <div class="stat-label">Revenue Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value gold">100%</div>
+                    <div class="stat-label">ATO Success Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">40+</div>
+                    <div class="stat-label">Hours Saved Monthly</div>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Building tools that automate the boring stuff</p>
+        <div class="section-header">
+            <div class="section-label">What I Do</div>
+            <h2 class="section-title">Expertise in Federal Cloud Compliance</h2>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">🛡️</div>
+                <h3>FedRAMP Authorization</h3>
+                <p>End-to-end ownership of FedRAMP Moderate and High authorization programs. SSP development, 3PAO coordination, agency sponsor engagement, and continuous monitoring.</p>
             </div>
-
-            <div class="stats animate-on-scroll">
-                <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$2M+</div>
-                    <div class="stat-label">Revenue from My Software</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Cloud Platforms</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Project Success Rate</div>
-                </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">📋</div>
+                <h3>Compliance Documentation</h3>
+                <p>System Security Plans, Rules of Behavior, Security Assessment Reports, and POA&M management. Translating NIST SP 800-53 Rev. 5 controls into actionable procedures.</p>
             </div>
-
-            <div class="skills-grid animate-on-scroll">
-                <span class="skill-tag highlight">Python</span>
-                <span class="skill-tag highlight">AI/ML</span>
-                <span class="skill-tag highlight">Amazon Bedrock</span>
-                <span class="skill-tag highlight">OpenAI</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Azure</span>
-                <span class="skill-tag">GCP</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">Terraform</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">ECS</span>
-                <span class="skill-tag">Supabase</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">Web Scraping</span>
-                <span class="skill-tag">Discord Bots</span>
-                <span class="skill-tag">Workflow Automation</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Bash</span>
+            <div class="expertise-card">
+                <div class="expertise-icon">☁️</div>
+                <h3>Multi-Cloud Security</h3>
+                <p>Designing compliant architectures across AWS GovCloud, Azure Government, and Google Cloud. Infrastructure as Code with embedded security controls.</p>
             </div>
-
-            <div class="focus-grid animate-on-scroll">
-                <div class="focus-card">
-                    <div class="focus-icon">🤖</div>
-                    <h3>AI & Automation</h3>
-                    <p>Building intelligent systems with Amazon Bedrock, LLMs, and custom AI agents that automate complex workflows and decision-making processes.</p>
-                </div>
-                <div class="focus-card">
-                    <div class="focus-icon">⚙️</div>
-                    <h3>Workflow Engineering</h3>
-                    <p>Designing and deploying API integrations, automation pipelines, and workflow systems that connect disparate platforms and eliminate manual processes.</p>
-                </div>
-                <div class="focus-card">
-                    <div class="focus-icon">☁️</div>
-                    <h3>Cloud Development</h3>
-                    <p>Full-stack development on AWS, Azure, and GCP—from containerized applications on ECS to serverless functions and database integrations.</p>
-                </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">⚙️</div>
+                <h3>Compliance Automation</h3>
+                <p>Building tools that automate artifact generation, POA&M tracking, and evidence collection. Reducing manual effort while improving audit readiness.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🤝</div>
+                <h3>Cross-Functional Leadership</h3>
+                <p>Partnering with Security, Engineering, Legal, Product, and SRE teams to embed compliance into operational processes without slowing delivery.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">📊</div>
+                <h3>Audit & Assessment</h3>
+                <p>Coordinating 3PAO assessments, analyzing findings, driving remediation to closure, and preparing executive compliance reporting.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Projects</h2>
-                <p class="section-subtitle">Production software solving real problems</p>
+    <section id="impact">
+        <div class="section-header">
+            <div class="section-label">Measurable Results</div>
+            <h2 class="section-title">Impact That Drives Business Value</h2>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card featured">
+                <div class="impact-badge gold">Revenue Impact</div>
+                <h3>Compliance Automation Platform</h3>
+                <p>Built an end-to-end automation platform from scratch that streamlines FedRAMP artifact generation, security assessments, and client deliverables at scale.</p>
+                <div class="impact-metric">
+                    <span class="value">$2M+</span>
+                    <span class="label">annual revenue generated</span>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Automation</span>
+                </div>
             </div>
-
-            <div class="projects-grid">
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">$2M+ Revenue</span>
-                    <h3>Defense in Depth Automation Platform</h3>
-                    <p>Built an end-to-end automation platform from scratch that now generates over $2M in annual revenue. Handles security assessments, reporting, and client deliverables at scale.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Automation</span>
-                        <span class="project-tag">AWS</span>
-                        <span class="project-tag">API Integration</span>
-                    </div>
+            <div class="impact-card">
+                <div class="impact-badge">Efficiency Gains</div>
+                <h3>POA&M Generation System with eMASS Integration</h3>
+                <p>Automated system running on AWS ECS that ingests scan results, generates action plans, tracks remediation, and syncs directly with government eMASS systems via API.</p>
+                <div class="impact-metric">
+                    <span class="value">40+</span>
+                    <span class="label">hours saved per month</span>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">eMASS Integration</span>
-                    <h3>POA&M Generation System</h3>
-                    <p>Automated system running on ECS that ingests scan results, generates action plans, tracks remediation, and syncs directly with government eMASS systems via API.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">AWS ECS</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">REST API</span>
-                        <span class="project-tag">Docker</span>
-                    </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">AWS ECS</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">eMASS API</span>
+                    <span class="tech-tag">Python</span>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">SaaS</span>
-                    <h3>NicheScout</h3>
-                    <p>SaaS platform that monitors Reddit, Hacker News, and IndieHackers to discover business opportunities. Features AI-powered opportunity scoring, validation questions, and real-time alerts.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">OpenAI</span>
-                        <span class="project-tag">Supabase</span>
-                        <span class="project-tag">Web Scraping</span>
-                    </div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-badge success">Delivery Excellence</div>
+                <h3>Federal Authorization Projects</h3>
+                <p>Led FedRAMP authorization efforts for Cloud Service Providers across Moderate and High impact levels, plus DoD IL4/IL5. Coordinated 3PAO assessments and drove findings to closure.</p>
+                <div class="impact-metric">
+                    <span class="value">100%</span>
+                    <span class="label">success rate on ATOs</span>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">ML/Analytics</span>
-                    <h3>NFL Prediction Algorithm</h3>
-                    <p>Machine learning system for NFL prop predictions. Analyzes player stats, defensive matchups, weather conditions, and historical patterns to generate touchdown probability scores.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">ML</span>
-                        <span class="project-tag">Supabase</span>
-                        <span class="project-tag">Data Analytics</span>
-                    </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">FedRAMP</span>
+                    <span class="tech-tag">NIST 800-53</span>
+                    <span class="tech-tag">DoD IL4/IL5</span>
+                    <span class="tech-tag">3PAO</span>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">Cross-Org</span>
-                    <h3>Jira Workflow Automation</h3>
-                    <p>Built an automation engine that creates, syncs, and routes Jira tickets across multiple organizations with intelligent assignment rules and status tracking.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Jira API</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Webhooks</span>
-                        <span class="project-tag">Automation</span>
-                    </div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-badge">Process Optimization</div>
+                <h3>Documentation Workflow Automation</h3>
+                <p>Reduced manual documentation effort by 60% through automated SSP generation, control mapping, and evidence collection workflows.</p>
+                <div class="impact-metric">
+                    <span class="value">60%</span>
+                    <span class="label">reduction in manual effort</span>
                 </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">Lead Gen</span>
-                    <h3>Reddit Lead Generation Bot</h3>
-                    <p>Discord bot that scrapes Reddit for business leads matching custom keywords. Features AI-powered lead scoring, sentiment analysis, and automated alerts for high-intent posts.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Discord API</span>
-                        <span class="project-tag">OpenAI</span>
-                        <span class="project-tag">Web Scraping</span>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <span class="project-badge">Mobile</span>
-                    <h3>Mobile App Development</h3>
-                    <p>Full-stack mobile application featuring Bluetooth device integration, customer management, automated quote generation, and real-time job tracking with offline sync capabilities.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Mobile Dev</span>
-                        <span class="project-tag">Bluetooth</span>
-                        <span class="project-tag">Database</span>
-                        <span class="project-tag">UI/UX</span>
-                    </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">OSCAL</span>
+                    <span class="tech-tag">Workflow Engine</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">Building software that drives business results</p>
+        <div class="section-header">
+            <div class="section-label">Career</div>
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+        <div class="experience-timeline">
+            <div class="experience-item current">
+                <div class="experience-date">October 2023 – Present</div>
+                <div class="experience-role">Federal Compliance Lead</div>
+                <div class="experience-company">Core Consulting Cloud Services (Coalfire)</div>
+                <ul class="experience-highlights">
+                    <li>Own day-to-day execution of federal compliance for CSPs pursuing FedRAMP Moderate ATO</li>
+                    <li>Built compliance automation platform generating $2M+ annual revenue</li>
+                    <li>Developed POA&M system with eMASS integration, saving 40+ hours monthly</li>
+                    <li>Achieved 100% success rate on federal authorization projects</li>
+                    <li>Partner cross-functionally with Security, Engineering, Legal, and Product teams</li>
+                    <li>Coordinate 3PAO assessments and drive remediation to closure</li>
+                </ul>
             </div>
+            <div class="experience-item">
+                <div class="experience-date">April 2023 – October 2023</div>
+                <div class="experience-role">Senior Contract Manager – Cybersecurity Services</div>
+                <div class="experience-company">Coalfire Systems</div>
+                <ul class="experience-highlights">
+                    <li>Primary point of contact for major federal accounts and compliance services</li>
+                    <li>Negotiated MSAs and SOWs for FedRAMP, FISMA, CMMC, and SOC 2 engagements</li>
+                    <li>Created operational playbooks to scale compliance capabilities</li>
+                    <li>Awards: Team Member of the Quarter, Operational Excellence, Sales Support MVP</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-date">April 2021 – March 2023</div>
+                <div class="experience-role">Contract Manager – Cybersecurity Services</div>
+                <div class="experience-company">Coalfire Systems</div>
+                <ul class="experience-highlights">
+                    <li>Managed contract lifecycle for security assessment and advisory services</li>
+                    <li>Built foundational knowledge of FedRAMP, SOC 2, and ISO 27001 frameworks</li>
+                </ul>
+            </div>
+        </div>
 
-            <div class="timeline">
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Consultant</h3>
-                                <p class="timeline-company">Coalfire Systems</p>
-                            </div>
-                            <span class="timeline-date">Present</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Built automation platform from scratch generating $2M+ annual revenue</li>
-                            <li>Developed POA&M software with eMASS API integration running on AWS ECS</li>
-                            <li>Created cross-organizational Jira automation for workflow management</li>
-                            <li>Grew client accounts into multiyear engagements through relationship building</li>
-                            <li>Design cloud architectures across AWS, GCP, and Azure</li>
-                            <li>100% success rate on federal authorization projects</li>
-                        </ul>
+        <div class="skills-section">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Federal Frameworks</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">FedRAMP Moderate/High</span>
+                        <span class="skill-item">NIST SP 800-53 Rev. 5</span>
+                        <span class="skill-item">FISMA</span>
+                        <span class="skill-item">RMF</span>
+                        <span class="skill-item">DoD IL4/IL5/IL6</span>
+                        <span class="skill-item">CMMC</span>
                     </div>
                 </div>
-
-                
+                <div class="skill-category">
+                    <h4>Cloud Platforms</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">AWS GovCloud</span>
+                        <span class="skill-item">Azure Government</span>
+                        <span class="skill-item">Google Cloud</span>
+                        <span class="skill-item">Terraform</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">ECS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Compliance Tools</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">eMASS</span>
+                        <span class="skill-item">OSCAL</span>
+                        <span class="skill-item">Security Hub</span>
+                        <span class="skill-item">Nessus</span>
+                        <span class="skill-item">Qualys</span>
+                        <span class="skill-item">Splunk</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Technical Skills</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">Automation</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="credentials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Credentials</h2>
-                <p class="section-subtitle">Certifications and continuous learning</p>
-            </div>
-
-            <div class="credentials-grid">
-                <div class="credential-section animate-on-scroll">
-                    <h3>Certifications</h3>
-                    <div class="cert-list">
-                        <span class="cert-badge">AWS Generative AI and AI Agents with Amazon Bedrock Professional Certificate</span>
-                        <span class="cert-badge">Google AI Essentials Specialization</span>
-                        <span class="cert-badge">Aviatrix ACE Associate</span>
-                        <span class="cert-badge">Aviatrix ACE Multicloud Network Associate</span>
-                    </div>
+        <div class="section-header">
+            <div class="section-label">Education & Certifications</div>
+            <h2 class="section-title">Credentials</h2>
+        </div>
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <div class="credential-icon">🎓</div>
+                <div class="credential-info">
+                    <h4>Master of Business Administration</h4>
+                    <p>Franklin University</p>
                 </div>
-
-                <div class="credential-section animate-on-scroll">
-                    <h3>Specializations</h3>
-                    <div class="credential-card">
-                        <h4>AI Development</h4>
-                        <p>Building intelligent automation with LLMs, Amazon Bedrock, and custom AI agents</p>
-                    </div>
-                    <div class="credential-card">
-                        <h4>Workflow Automation</h4>
-                        <p>Building API integrations, automation pipelines, and cross-system workflow engines</p>
-                    </div>
-                    <div class="credential-card">
-                        <h4>Cloud Engineering</h4>
-                        <p>Full-stack development on AWS, Azure, and GCP with compliance expertise</p>
-                    </div>
+            </div>
+            <div class="credential-card">
+                <div class="credential-icon">🎓</div>
+                <div class="credential-info">
+                    <h4>Bachelor of Science</h4>
+                    <p>The Ohio State University</p>
+                </div>
+            </div>
+            <div class="credential-card">
+                <div class="credential-icon">☁️</div>
+                <div class="credential-info">
+                    <h4>AWS Generative AI & AI Agents</h4>
+                    <p>Amazon Bedrock Professional Certificate</p>
+                </div>
+            </div>
+            <div class="credential-card">
+                <div class="credential-icon">🤖</div>
+                <div class="credential-info">
+                    <h4>Google AI Essentials</h4>
+                    <p>Specialization Certificate</p>
+                </div>
+            </div>
+            <div class="credential-card">
+                <div class="credential-icon">🌐</div>
+                <div class="credential-info">
+                    <h4>Aviatrix ACE Associate</h4>
+                    <p>Multicloud Network Certification</p>
+                </div>
+            </div>
+            <div class="credential-card">
+                <div class="credential-icon">🌐</div>
+                <div class="credential-info">
+                    <h4>Aviatrix ACE Multicloud</h4>
+                    <p>Network Associate Certification</p>
                 </div>
             </div>
         </div>
@@ -1048,93 +942,19 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">
+            <div class="footer-info">
                 <h3>Garett Schultz</h3>
-                <p>AI Developer building automation tools that generate $2M+ in annual revenue</p>
+                <p>Federal Compliance Manager & Cloud Security Expert</p>
             </div>
             <div class="footer-links">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#credentials">Credentials</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="https://github.com/garettschultz-sudo" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/garett-schultz-609b07171/" target="_blank">LinkedIn</a></li>
-                    <li><a href="mailto:garett.schultz5@gmail.com">Email</a></li>
-                </ul>
+                <a href="https://github.com/garettschultz-sudo" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/garett-schultz-609b07171/" target="_blank">LinkedIn</a>
+                <a href="mailto:garett.schultz5@gmail.com">Email</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Garett Schultz. All rights reserved.</p>
+        <div class="copyright">
+            © 2025 Garett Schultz. All rights reserved.
         </div>
     </footer>
-
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Nav background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 15, 0.95)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 15, 0.8)';
-            }
-
-            // Back to top button visibility
-            const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        // Back to top click handler
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
 </body>
 </html>
